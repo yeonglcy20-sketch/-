@@ -4,7 +4,7 @@ body {
   background-color: #a8e6cf;
   color: #333;
   /* 기본 글씨 크기 더 크게 */
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .overlay {
@@ -20,7 +20,7 @@ h1 {
   text-align: center;
   color: #ff8c94;
   /* 타이틀 글씨 크기 더 크게 */
-  font-size: 4rem;
+  font-size: 5rem;
   margin-bottom: 1.5rem;
   letter-spacing: 1px;
 }
@@ -50,13 +50,13 @@ h1 {
   font-weight: bold;
   margin-right: 4px;
   /* 라벨 글씨 크기 더 크게 */
-  font-size: 1.6rem;
+  font-size: 2rem;
 }
 
 .controls select {
   padding: 6px 8px;
   /* 셀렉트 글씨 크기 더 크게 */
-  font-size: 1.6rem;
+  font-size: 2rem;
   border: 2px solid #79c9a7;
   border-radius: 8px;
   outline: none;
@@ -84,7 +84,7 @@ h1 {
   flex: 1;
   padding: 6px 10px;
   /* 목록 글씨 크기 더 크게 */
-  font-size: 1.4rem;
+  font-size: 2rem;
 }
 
 .col.level {
@@ -94,7 +94,7 @@ h1 {
 .stars {
   white-space: nowrap;
   /* 별 아이콘 크기 더 크게 */
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 
 .star {
