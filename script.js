@@ -6,9 +6,9 @@ const songs = [
 
   // ✅ JPOP
   { title: "晩餐歌 (만찬가)", singer: "tuki", level: 3, genre: "JPOP" },
-  { title: "17さいのうた｡ (17살의 노래)", singer: "미상", level: 3, genre: "JPOP" },
-  { title: "貴方の恋人になりたい (당신의 연인이 되고 싶어)", singer: "미상", level: 3, genre: "JPOP" },
-  { title: "愛を伝えたいだとか (사랑을 전하고 싶다든가)", singer: "미상", level: 3, genre: "JPOP" },
+  { title: "17さいのうた｡ (17살의 노래)", singer: "Yuika", level: 3, genre: "JPOP" },
+  { title: "貴方の恋人になりたい (당신의 연인이 되고 싶어)", singer: "ChoQMay", level: 3, genre: "JPOP" },
+  { title: "愛を伝えたいだとか (사랑을 전하고 싶다든가)", singer: "아이묭, level: 3, genre: "JPOP" },
   { title: "なんでもないや (아무것도 아니야)", singer: "RADWIMPS", level: 3, genre: "JPOP" },
   { title: "好きだから (좋아하니까)", singer: "Yuika", level: 3, genre: "JPOP" },
   { title: "Finale (피날레)", singer: "eill", level: 3, genre: "JPOP" },
@@ -44,8 +44,8 @@ const songs = [
   { title: "moon river", singer: "Audrey Hepburn", level: 3, genre: "POP" },
   { title: "close to you", singer: "Carpenters", level: 3, genre: "POP" },
   { title: "Remember", singer: "Becky Hill & David Guetta", level: 3, genre: "POP" },
-  { title: "snow spectacle", singer: "미상", level: 3, genre: "POP" },
-  { title: "Once in a moon", singer: "미상", level: 3, genre: "POP" },
+  { title: "snow spectacle", singer: "이제", level: 3, genre: "POP" },
+  { title: "Once in a moon", singer: "Sarah Kang", level: 3, genre: "POP" },
   { title: "Falling slowly", singer: "Glen Hansard & Markéta Irglová", level: 3, genre: "POP" }
 ];
 
