@@ -1,10 +1,10 @@
 body {
   margin: 0;
-  /* 손글씨체 적용 */
   font-family: 'Nanum Pen Script', cursive;
-  /* 민트 계열 배경색 */
   background-color: #a8e6cf;
   color: #333;
+  /* 기본 글씨 크기 증가 */
+  font-size: 18px;
 }
 
 .overlay {
@@ -18,18 +18,18 @@ body {
 
 h1 {
   text-align: center;
-  /* 귀여운 포인트 컬러 */
   color: #ff8c94;
-  font-size: 2.5rem;
+  /* 타이틀 글씨 크기 증가 */
+  font-size: 3rem;
   margin-bottom: 1.5rem;
   letter-spacing: 1px;
 }
 
-/* 검색창 */
 #searchInput {
   width: 100%;
   padding: 12px;
-  font-size: 1.2rem;
+  /* 검색창 글씨 크기 증가 */
+  font-size: 1.4rem;
   border: 2px solid #79c9a7;
   border-radius: 12px;
   margin-bottom: 1rem;
@@ -37,7 +37,6 @@ h1 {
   box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
 }
 
-/* 필터·정렬 컨트롤 */
 .controls {
   display: flex;
   justify-content: space-between;
@@ -50,23 +49,24 @@ h1 {
 .controls label {
   font-weight: bold;
   margin-right: 4px;
-  font-size: 1rem;
+  /* 라벨 글씨 크기 증가 */
+  font-size: 1.2rem;
 }
 
 .controls select {
   padding: 6px 8px;
-  font-size: 1rem;
+  /* 셀렉트 글씨 크기 증가 */
+  font-size: 1.2rem;
   border: 2px solid #79c9a7;
   border-radius: 8px;
   outline: none;
   box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
 }
 
-/* 리스트 헤더 & 행 */
 .song-header,
 .song-row {
   display: flex;
-  padding: 10px;
+  padding: 12px;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 8px;
@@ -81,17 +81,19 @@ h1 {
 
 .col {
   flex: 1;
-  padding: 4px 8px;
+  padding: 6px 10px;
+  /* 목록 글씨 크기 증가 */
+  font-size: 1rem;
 }
 
 .col.level {
   flex: 0.8;
 }
 
-/* 별점 */
 .stars {
   white-space: nowrap;
-  font-size: 1.4rem;
+  /* 별 아이콘 크기 증가 */
+  font-size: 1.6rem;
 }
 
 .star {
