@@ -2,6 +2,8 @@ body {
   margin: 0;
   /* 손글씨체 적용 */
   font-family: 'Nanum Pen Script', cursive;
+  /* 기본 글씨 크기 증가 */
+  font-size: 18px;
   /* 민트 그라데이션 배경 */
   background: linear-gradient(135deg, #A8E6CF 0%, #DCEDC2 100%);
   color: #333;
@@ -20,13 +22,15 @@ h1 {
   text-align: center;
   color: #388E8E;
   margin-bottom: 1rem;
-  font-size: 2.5rem;
+  /* 제목 글씨 크기 증가 */
+  font-size: 3rem;
 }
 
 #searchInput {
   width: 100%;
   padding: 12px;
-  font-size: 1.1rem;
+  /* 입력창 글씨 크기 증가 */
+  font-size: 1.3rem;
   margin-bottom: 1rem;
   border: 2px solid #88D8C0;
   border-radius: 12px;
@@ -54,6 +58,8 @@ h1 {
 
 .controls select {
   padding: 6px 8px;
+  /* 선택창 글씨 크기 적용 */
+  font-size: 1.15rem;
   border: 2px solid #88D8C0;
   border-radius: 8px;
   font-family: 'Nanum Pen Script', cursive;
@@ -87,7 +93,8 @@ h1 {
 
 .stars {
   white-space: nowrap;
-  font-size: 1.2rem;
+  /* 별 아이콘 크기 증가 */
+  font-size: 1.4rem;
 }
 
 .star {
