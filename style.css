@@ -1,12 +1,18 @@
 body {
   margin: 0;
-  /* 손글씨체 적용 */
   font-family: 'Nanum Pen Script', cursive;
-  /* 기본 폰트 10pt 유지 */
-  font-size: 10pt;
   /* 민트 그라데이션 배경 */
   background: linear-gradient(135deg, #A8E6CF 0%, #DCEDC2 100%);
   color: #333;
+}
+
+.overlay {
+  background-color: rgba(255, 255, 255, 0.9);
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
@@ -19,8 +25,7 @@ h1 {
 #searchInput {
   width: 100%;
   padding: 12px;
-  /* 검색창 폰트 상속 */
-  font-size: inherit;
+  font-size: 1.1rem;
   margin-bottom: 1rem;
   border: 2px solid #88D8C0;
   border-radius: 12px;
@@ -43,15 +48,11 @@ h1 {
 
 .controls label {
   font-weight: bold;
-  /* 레이블 폰트 상속 */
-  font-size: inherit;
   margin-right: 4px;
 }
 
 .controls select {
   padding: 6px 8px;
-  /* 선택창 폰트 상속 */
-  font-size: inherit;
   border: 2px solid #88D8C0;
   border-radius: 8px;
   font-family: 'Nanum Pen Script', cursive;
@@ -66,8 +67,6 @@ h1 {
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 12px;
   margin-bottom: 6px;
-  /* 목록 폰트 15pt */
-  font-size: 15pt;
 }
 
 .song-header {
@@ -87,8 +86,7 @@ h1 {
 
 .stars {
   white-space: nowrap;
-  /* 별 아이콘 폰트 상속 */
-  font-size: inherit;
+  font-size: 1.2rem;
 }
 
 .star {
