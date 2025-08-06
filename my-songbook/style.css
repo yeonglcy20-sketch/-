@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: url('images/background.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #333;
+}
+
+.overlay {
+  background-color: rgba(255, 255, 255, 0.85);
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+h1 {
+  text-align: center;
+  color: #ff7f2a;
+  margin-bottom: 1rem;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.controls label {
+  font-weight: bold;
+  margin-right: 4px;
+}
+
+.song-header,
+.song-row {
+  display: flex;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+
+.song-header {
+  font-weight: bold;
+  background-color: rgba(255, 228, 181, 0.7);
+  border: none;
+}
+
+.col {
+  flex: 1;
+  padding: 4px 8px;
+}
+
+.col.level {
+  flex: 0.8;
+}
+
+.stars {
+  white-space: nowrap;
+  font-size: 18px;
+}
+
+.star {
+  color: #ccc;
+}
+
+.star.filled {
+  color: gold;
+}
