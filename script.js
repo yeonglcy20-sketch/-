@@ -49,7 +49,6 @@ const songs = [
   { title: "Falling slowly", singer: "Glen Hansard & Markéta Irglová", level: 3, genre: "POP" }
 ];
 
-
 function updateFilters() {
   const keyword = document.getElementById('searchInput').value.toLowerCase();
   const level = parseInt(document.getElementById('levelFilter').value);
