@@ -1,96 +1,84 @@
+/* style.css */
 body {
   margin: 0;
-  font-family: 'Cute Font', 'Segoe UI', sans-serif;
-  background: url('images/background.png') no-repeat center center fixed;
-  background-size: cover;
-  color: #444;
-  overflow-x: hidden;
+  font-family: 'Nanum Pen Script', cursive;
+  /* 민트 그라데이션 배경 */
+  background: linear-gradient(135deg, #A8E6CF 0%, #DCEDC2 100%);
+  color: #333;
 }
 
 .overlay {
-  background-color: rgba(255, 255, 255, 0.92);
-  max-width: 860px;
-  margin: 3rem auto;
+  background-color: rgba(255, 255, 255, 0.9);
+  max-width: 800px;
+  margin: 2rem auto;
   padding: 2rem;
-  border-radius: 24px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-  border: 2px dashed #ffa94d;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
   text-align: center;
+  color: #388E8E;
+  margin-bottom: 1rem;
   font-size: 2.5rem;
-  color: #ff914d;
-  margin-bottom: 1.5rem;
-  text-shadow: 1px 1px #fff5e6;
 }
 
 #searchInput {
   width: 100%;
   padding: 12px;
-  font-size: 16px;
-  margin-bottom: 1.2rem;
-  border: 2px solid #ffc78a;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  border: 2px solid #88D8C0;
   border-radius: 12px;
-  background-color: #fffaf3;
-  transition: box-shadow 0.2s;
+  outline: none;
 }
 
 #searchInput:focus {
-  outline: none;
-  box-shadow: 0 0 6px #ffbd80;
+  border-color: #3AAFA9;
+  box-shadow: 0 0 8px rgba(58, 175, 169, 0.5);
 }
 
 .controls {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 .controls label {
   font-weight: bold;
-  margin-right: 6px;
-  color: #d36b00;
+  margin-right: 4px;
 }
 
 .controls select {
-  padding: 8px;
+  padding: 6px 8px;
+  border: 2px solid #88D8C0;
   border-radius: 8px;
-  border: 1px solid #ffa94d;
-  background-color: #fffaf2;
-  font-size: 14px;
+  font-family: 'Nanum Pen Script', cursive;
 }
 
 .song-header,
 .song-row {
   display: flex;
-  padding: 12px;
-  border-bottom: 1px dashed #f5c58d;
+  padding: 10px;
+  border-bottom: 1px solid #B2F2EB;
   align-items: center;
-  background-color: rgba(255, 250, 240, 0.9);
-  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
   margin-bottom: 6px;
-  transition: background 0.2s;
-}
-
-.song-row:hover {
-  background-color: rgba(255, 240, 210, 0.95);
 }
 
 .song-header {
   font-weight: bold;
-  background-color: rgba(255, 220, 180, 0.8);
+  background-color: rgba(181, 236, 222, 0.8);
   border: none;
-  color: #6b3200;
 }
 
 .col {
   flex: 1;
-  padding: 4px 10px;
-  font-size: 15px;
+  padding: 4px 8px;
 }
 
 .col.level {
@@ -99,15 +87,13 @@ h1 {
 
 .stars {
   white-space: nowrap;
-  font-size: 18px;
-  letter-spacing: 2px;
+  font-size: 1.2rem;
 }
 
 .star {
-  color: #ffd9a0;
-  transition: color 0.2s;
+  color: #ccc;
 }
 
 .star.filled {
-  color: #ffaf3f;
+  color: #FFD700;
 }
