@@ -42,6 +42,9 @@ const songs = [
   { title: "snow spectacle", singer: "이제", level: 3, genre: "POP" },
   { title: "Once in a moon", singer: "Sarah Kang", level: 3, genre: "POP" },
   { title: "Falling slowly", singer: "Glen Hansard & Markéta Irglová", level: 3, genre: "POP" }
+
+  // ✅ 애교송
+  { title: "모찌송", singer: "모찌멜로디", level: 3, genre: "애교송" },
 ];
 
 function updateFilters() {
