@@ -1,17 +1,16 @@
 body {
   margin: 0;
   font-family: 'Nanum Pen Script', cursive;
+  font-size: 18px;              /* 기본 폰트 크기 업 */
   background-color: #a8e6cf;
   color: #333;
-  /* 기본 글씨 크기 더 크게 */
-  font-size: 18px;
 }
 
 .overlay {
   background-color: rgba(255, 255, 255, 0.9);
   max-width: 800px;
   margin: 2rem auto;
-  padding: 2rem;
+  padding: 2.5rem;              /* 패딩 살짝 증가 */
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
@@ -19,59 +18,58 @@ body {
 h1 {
   text-align: center;
   color: #ff8c94;
-  /* 타이틀 글씨 크기 더 크게 */
-  font-size: 4rem;
-  margin-bottom: 1.5rem;
+  font-size: 3rem;              /* 제목 크기 크게 */
+  margin-bottom: 2rem;
   letter-spacing: 1px;
 }
 
+/* 검색창 */
 #searchInput {
   width: 100%;
-  padding: 12px;
-  /* 검색창 글씨 크기 더 크게 */
-  font-size: 1.8rem;
+  padding: 14px;
+  font-size: 1.2rem;            /* 입력창 폰트 크기 업 */
   border: 2px solid #79c9a7;
   border-radius: 12px;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   outline: none;
   box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
 }
 
+/* 필터·정렬 컨트롤 */
 .controls {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 1rem;
+  gap: 12px;
+  margin-bottom: 1.2rem;
 }
 
 .controls label {
   font-weight: bold;
   margin-right: 4px;
-  /* 라벨 글씨 크기 더 크게 */
-  font-size: 1.6rem;
+  font-size: 1rem;            /* 라벨 크기 업 */
 }
 
 .controls select {
-  padding: 6px 8px;
-  /* 셀렉트 글씨 크기 더 크게 */
-  font-size: 1.6rem;
+  padding: 8px 10px;
+  font-size: 1rem;            /* 셀렉트 폰트 크기 업 */
   border: 2px solid #79c9a7;
   border-radius: 8px;
   outline: none;
   box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
 }
 
+/* 리스트 헤더 & 행 */
 .song-header,
 .song-row {
   display: flex;
-  /* 행 높이와 글씨 틈 더 넓게 */
-  padding: 14px;
+  padding: 12px;
   align-items: center;
+  font-size: 1rem;            /* 리스트 텍스트 크기 업 */
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 8px;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .song-header {
@@ -83,23 +81,21 @@ h1 {
 .col {
   flex: 1;
   padding: 6px 10px;
-  /* 목록 글씨 크기 더 크게 */
-  font-size: 1.4rem;
 }
 
 .col.level {
   flex: 0.8;
 }
 
+/* 별점 */
 .stars {
   white-space: nowrap;
-  /* 별 아이콘 크기 더 크게 */
-  font-size: 1.8rem;
+  font-size: 1.4rem;            /* 별 크기 업 */
 }
 
 .star {
   color: #cce7e0;
-  margin-right: 2px;
+  margin-right: 3px;
 }
 .star.filled {
   color: #ffb3b3;
