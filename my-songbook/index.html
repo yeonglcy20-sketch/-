@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>당근 농장 노래책</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="overlay">
+    <h1>🥕 당근 농장 노래책 🥕</h1>
+
+    <input type="text" id="searchInput" placeholder="노래 제목 또는 가수를 검색하세요">
+
+    <div class="controls">
+      <label for="levelFilter">숙련도:</label>
+      <select id="levelFilter" onchange="updateFilters()">
+        <option value="0">전체</option>
+        <option value="1">★</option>
+        <option value="2">★★</option>
+        <option value="3">★★★</option>
+        <option value="4">★★★★</option>
+        <option value="5">★★★★★</option>
+      </select>
+
+      <label for="genreFilter">장르:</label>
+      <select id="genreFilter" onchange="updateFilters()">
+        <option value="all">전체</option>
+        <option value="JPOP">JPOP</option>
+        <option value="인디/발라드">인디/발라드</option>
+        <option value="POP">POP</option>
+      </select>
+
+      <label for="sortBy">정렬:</label>
+      <select id="sortBy" onchange="updateFilters()">
+        <option value="title-asc">제목 ↑</option>
+        <option value="title-desc">제목 ↓</option>
+        <option value="singer-asc">가수 ↑</option>
+        <option value="singer-desc">가수 ↓</option>
+      </select>
+    </div>
+
+    <div class="song-header">
+      <div class="col title">제목</div>
+      <div class="col singer">가수</div>
+      <div class="col genre">장르</div>
+      <div class="col level">숙련도</div>
+    </div>
+
+    <div id="songList"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
