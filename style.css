@@ -1,8 +1,9 @@
 body {
   margin: 0;
+  /* 손글씨체 적용 */
   font-family: 'Nanum Pen Script', cursive;
-  /* 민트 그라데이션 배경 */
-  background: linear-gradient(135deg, #A8E6CF 0%, #DCEDC2 100%);
+  /* 민트 계열 배경색 */
+  background-color: #a8e6cf;
   color: #333;
 }
 
@@ -11,67 +12,70 @@ body {
   max-width: 800px;
   margin: 2rem auto;
   padding: 2rem;
-  border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 h1 {
   text-align: center;
-  color: #388E8E;
-  margin-bottom: 1rem;
+  /* 귀여운 포인트 컬러 */
+  color: #ff8c94;
   font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
 }
 
+/* 검색창 */
 #searchInput {
   width: 100%;
   padding: 12px;
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-  border: 2px solid #88D8C0;
+  font-size: 1.2rem;
+  border: 2px solid #79c9a7;
   border-radius: 12px;
+  margin-bottom: 1rem;
   outline: none;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
 }
 
-#searchInput:focus {
-  border-color: #3AAFA9;
-  box-shadow: 0 0 8px rgba(58, 175, 169, 0.5);
-}
-
+/* 필터·정렬 컨트롤 */
 .controls {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
   flex-wrap: wrap;
+  gap: 10px;
   margin-bottom: 1rem;
 }
 
 .controls label {
   font-weight: bold;
   margin-right: 4px;
+  font-size: 1rem;
 }
 
 .controls select {
   padding: 6px 8px;
-  border: 2px solid #88D8C0;
+  font-size: 1rem;
+  border: 2px solid #79c9a7;
   border-radius: 8px;
-  font-family: 'Nanum Pen Script', cursive;
+  outline: none;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
 }
 
+/* 리스트 헤더 & 행 */
 .song-header,
 .song-row {
   display: flex;
   padding: 10px;
-  border-bottom: 1px solid #B2F2EB;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 12px;
+  border-radius: 8px;
   margin-bottom: 6px;
 }
 
 .song-header {
   font-weight: bold;
-  background-color: rgba(181, 236, 222, 0.8);
+  background-color: rgba(255, 228, 181, 0.8);
   border: none;
 }
 
@@ -84,15 +88,16 @@ h1 {
   flex: 0.8;
 }
 
+/* 별점 */
 .stars {
   white-space: nowrap;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 .star {
-  color: #ccc;
+  color: #cce7e0;
+  margin-right: 2px;
 }
-
 .star.filled {
-  color: #FFD700;
+  color: #ffb3b3;
 }
