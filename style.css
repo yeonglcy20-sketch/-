@@ -1,6 +1,6 @@
-/* style.css */
 body {
   margin: 0;
+  /* 손글씨체 적용 */
   font-family: 'Nanum Pen Script', cursive;
   /* 민트 그라데이션 배경 */
   background: linear-gradient(135deg, #A8E6CF 0%, #DCEDC2 100%);
