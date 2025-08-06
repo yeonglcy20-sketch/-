@@ -29,7 +29,7 @@ h1 {
   width: 100%;
   padding: 12px;
   /* 검색창 글씨 크기 더 크게 */
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   border: 2px solid #79c9a7;
   border-radius: 12px;
   margin-bottom: 1rem;
@@ -50,13 +50,13 @@ h1 {
   font-weight: bold;
   margin-right: 4px;
   /* 라벨 글씨 크기 더 크게 */
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 .controls select {
   padding: 6px 8px;
   /* 셀렉트 글씨 크기 더 크게 */
-  font-size: 2rem;
+  font-size: 1.8rem;
   border: 2px solid #79c9a7;
   border-radius: 8px;
   outline: none;
@@ -84,7 +84,7 @@ h1 {
   flex: 1;
   padding: 6px 10px;
   /* 목록 글씨 크기 더 크게 */
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 .col.level {
@@ -94,7 +94,7 @@ h1 {
 .stars {
   white-space: nowrap;
   /* 별 아이콘 크기 더 크게 */
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 .star {
