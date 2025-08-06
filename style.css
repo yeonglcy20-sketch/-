@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: 'Nanum Pen Script', cursive;
-  font-size: 11pt;
+  font-size: 14pt;
   background: linear-gradient(135deg, #A8E6CF 0%, #DCEDC2 100%);
   color: #333;
 }
@@ -19,7 +19,7 @@ h1 {
   text-align: center;
   color: #388E8E;
   margin-bottom: 1rem;
-  font-size: 4rem;
+  font-size: 6rem;
 }
 
 #searchInput {
