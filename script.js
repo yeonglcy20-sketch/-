@@ -1,9 +1,4 @@
 const songs = [
-  // 기존 샘플 데이터...
-  { title: "밤하늘의 별을", singer: "마크툽", level: 5, genre: "인디/발라드" },
-  { title: "썸", singer: "소유 & 정기고", level: 3, genre: "POP" },
-  { title: "좋은날", singer: "아이유", level: 4, genre: "인디/발라드" },
-
   // ✅ JPOP
   { title: "晩餐歌 (만찬가)", singer: "tuki", level: 3, genre: "JPOP" },
   { title: "17さいのうた｡ (17살의 노래)", singer: "Yuika", level: 3, genre: "JPOP" },
