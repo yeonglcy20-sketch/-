@@ -3,8 +3,8 @@ body {
   font-family: 'Nanum Pen Script', cursive;
   background-color: #a8e6cf;
   color: #333;
-  /* 기본 글씨 크기 증가 */
-  font-size: 18px;
+  /* 기본 글씨 크기 더 크게 */
+  font-size: 20px;
 }
 
 .overlay {
@@ -19,8 +19,8 @@ body {
 h1 {
   text-align: center;
   color: #ff8c94;
-  /* 타이틀 글씨 크기 증가 */
-  font-size: 3rem;
+  /* 타이틀 글씨 크기 더 크게 */
+  font-size: 4rem;
   margin-bottom: 1.5rem;
   letter-spacing: 1px;
 }
@@ -28,8 +28,8 @@ h1 {
 #searchInput {
   width: 100%;
   padding: 12px;
-  /* 검색창 글씨 크기 증가 */
-  font-size: 1.4rem;
+  /* 검색창 글씨 크기 더 크게 */
+  font-size: 1.8rem;
   border: 2px solid #79c9a7;
   border-radius: 12px;
   margin-bottom: 1rem;
@@ -49,14 +49,14 @@ h1 {
 .controls label {
   font-weight: bold;
   margin-right: 4px;
-  /* 라벨 글씨 크기 증가 */
-  font-size: 1.2rem;
+  /* 라벨 글씨 크기 더 크게 */
+  font-size: 1.6rem;
 }
 
 .controls select {
   padding: 6px 8px;
-  /* 셀렉트 글씨 크기 증가 */
-  font-size: 1.2rem;
+  /* 셀렉트 글씨 크기 더 크게 */
+  font-size: 1.6rem;
   border: 2px solid #79c9a7;
   border-radius: 8px;
   outline: none;
@@ -66,7 +66,8 @@ h1 {
 .song-header,
 .song-row {
   display: flex;
-  padding: 12px;
+  /* 행 높이와 글씨 틈 더 넓게 */
+  padding: 14px;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 8px;
@@ -82,8 +83,8 @@ h1 {
 .col {
   flex: 1;
   padding: 6px 10px;
-  /* 목록 글씨 크기 증가 */
-  font-size: 1rem;
+  /* 목록 글씨 크기 더 크게 */
+  font-size: 1.4rem;
 }
 
 .col.level {
@@ -92,8 +93,8 @@ h1 {
 
 .stars {
   white-space: nowrap;
-  /* 별 아이콘 크기 증가 */
-  font-size: 1.6rem;
+  /* 별 아이콘 크기 더 크게 */
+  font-size: 1.8rem;
 }
 
 .star {
