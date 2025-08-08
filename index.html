@@ -68,7 +68,7 @@
   .table-wrapper {
     width: 100%;
     max-width: 700px;
-    background-color: #e7f2ef; /* 더 연한 배경색 */
+    background-color: #F6FDFA; /* 변경된 배경색 */
     border-radius: 16px;
     padding: 12px 20px 20px 20px;
     box-sizing: border-box;
@@ -82,7 +82,7 @@
   }
 
   thead tr th {
-    background-color: #a1d5c4;
+    background-color: #FDE9C3; /* 변경된 헤더 배경색 */
     padding: 12px 20px;
     border-radius: 12px 12px 0 0;
     font-weight: 700;
@@ -95,27 +95,12 @@
     transition: background-color 0.3s, color 0.3s;
   }
   thead tr th:hover:not(.sorted-asc):not(.sorted-desc) {
-    background-color: #c9e7d9;
+    background-color: #faefbf; /* 헤더 hover 시 연한 색 */
   }
   thead tr th.sorted-asc,
   thead tr th.sorted-desc {
-    background-color: #4a9c85;
+    background-color: #d1b75b; /* 정렬 시 진한 배경 */
     color: white;
-  }
-  thead tr th.sorted-asc::after,
-  thead tr th.sorted-desc::after {
-    content: '';
-    position: absolute;
-    right: 12px;
-    font-weight: bold;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  thead tr th.sorted-asc::after {
-    content: '▲';
-  }
-  thead tr th.sorted-desc::after {
-    content: '▼';
   }
 
   tbody tr {
@@ -161,8 +146,8 @@
     <table id="songTable">
       <thead>
         <tr>
-          <th data-sort="artist">가수명</th>
-          <th data-sort="title">노래제목</th>
+          <th data-sort="artist">노래제목</th>
+          <th data-sort="title">가수명</th>
           <th data-sort="genre">장르</th>
           <th data-sort="level">숙련도</th>
         </tr>
