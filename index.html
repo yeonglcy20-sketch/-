@@ -7,29 +7,16 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
 
-  /* 배경 이미지 스타일 */
-  html, body {
-    margin: 0; padding: 0; height: 100%;
-  }
-  .background {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: url('/mnt/data/f409093d-651b-4f81-9563-2c9dcc785b48.png') center top no-repeat;
-    background-size: cover;
-    filter: brightness(0.9);
-    z-index: -1;
-  }
-
-  /* 본문은 투명 배경 */
   body {
-    background: transparent;
+    margin: 0; padding: 0;
+    min-height: 100vh;
+    background: #dff7f0;
     font-family: 'Nanum Pen Script', cursive, Arial, sans-serif;
     color: #1a3a35;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 40px 20px;
-    min-height: 100vh;
   }
 
   h1 {
@@ -77,11 +64,21 @@
     cursor: pointer;
   }
 
+  /* 테이블 감싸는 배경 */
+  .table-wrapper {
+    width: 100%;
+    max-width: 700px;
+    background-color: #e7f2ef; /* 더 연한 배경색 */
+    border-radius: 16px;
+    padding: 12px 20px 20px 20px;
+    box-sizing: border-box;
+    margin-bottom: 40px;
+  }
+
   table {
     border-collapse: separate;
     border-spacing: 0 10px;
     width: 100%;
-    max-width: 700px;
   }
 
   thead tr th {
@@ -145,7 +142,6 @@
 </style>
 </head>
 <body>
-  <div class="background"></div>
 
   <h1>🥕 당근 농장 노래책 🥕</h1>
 
@@ -161,19 +157,21 @@
     </select>
   </div>
 
-  <table id="songTable">
-    <thead>
-      <tr>
-        <th data-sort="artist">가수명</th>
-        <th data-sort="title">노래제목</th>
-        <th data-sort="genre">장르</th>
-        <th data-sort="level">숙련도</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- 데이터가 JS로 채워집니다 -->
-    </tbody>
-  </table>
+  <div class="table-wrapper">
+    <table id="songTable">
+      <thead>
+        <tr>
+          <th data-sort="artist">가수명</th>
+          <th data-sort="title">노래제목</th>
+          <th data-sort="genre">장르</th>
+          <th data-sort="level">숙련도</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 데이터가 JS로 채워집니다 -->
+      </tbody>
+    </table>
+  </div>
 
 <script>
   const csvUrl = "https://docs.google.com/spreadsheets/d/1hdsGYtEkNcSqkdelQkI__LE8vQ8kqhGrVNhD-Hgf9Bg/export?format=csv&gid=1935277676";
@@ -274,5 +272,6 @@
       console.error(e);
     });
 </script>
+
 </body>
 </html>
