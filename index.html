@@ -91,6 +91,8 @@
     border-collapse: separate;
     border-spacing: 0 10px;
     width: 100%;
+    table-layout: fixed;
+    word-break: break-word;
   }
 
   thead tr th {
@@ -105,6 +107,7 @@
     color: #1a3a35;
     position: relative;
     transition: background-color 0.3s, color 0.3s;
+    overflow-wrap: break-word;
   }
   thead tr th:hover:not(.sorted-asc):not(.sorted-desc) {
     background-color: #faefbf;
@@ -130,6 +133,7 @@
     font-family: Arial, sans-serif;
     font-weight: 500;
     color: #1a3a35;
+    overflow-wrap: break-word;
   }
 
   td.level-star {
@@ -167,10 +171,10 @@
     }
     thead tr th {
       font-size: 1.1rem;
-      padding: 10px 12px;
+      padding: 10px 8px;
     }
     tbody tr td {
-      padding: 10px 12px;
+      padding: 8px 8px;
       font-size: 0.9rem;
     }
     /* 모바일에서 가수명 헤더만 작게 */
