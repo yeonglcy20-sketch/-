@@ -10,7 +10,7 @@
   body {
     margin: 0; padding: 0;
     min-height: 100vh;
-    background: #b8e4d7;
+    background: #dff7f0;  /* 더 연한 민트색 */
     font-family: 'Nanum Pen Script', cursive, Arial, sans-serif;
     color: #1a3a35;
     display: flex;
@@ -25,28 +25,38 @@
     text-align: center;
   }
 
-  #searchInput {
+  /* 필터+검색 컨테이너 오른쪽 정렬 */
+  .controls {
     width: 100%;
-    max-width: 400px;
+    max-width: 700px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-bottom: 25px;
+  }
+
+  #searchInput {
+    width: 220px;
     padding: 10px 15px;
     font-size: 1.1rem;
     border-radius: 25px;
     border: none;
     outline: none;
-    margin-bottom: 15px;
     box-shadow: 0 0 8px rgba(26,58,53,0.2);
     background-color: #d6f0e9;
     color: #1a3a35;
+    transition: background-color 0.3s;
   }
-
   #searchInput::placeholder {
     color: #55806b;
+  }
+  #searchInput:hover {
+    background-color: #c0e2d3;
   }
 
   #levelFilter {
     width: 140px;
     padding: 8px 12px;
-    margin-bottom: 25px;
     border-radius: 25px;
     border: none;
     outline: none;
@@ -54,6 +64,10 @@
     background-color: #d6f0e9;
     color: #1a3a35;
     box-shadow: 0 0 8px rgba(26,58,53,0.2);
+    transition: background-color 0.3s;
+  }
+  #levelFilter:hover {
+    background-color: #c0e2d3;
   }
 
   table {
@@ -74,6 +88,7 @@
     user-select: none;
     color: #1a3a35;
     position: relative;
+    transition: background-color 0.3s;
   }
   thead tr th.sorted-asc,
   thead tr th.sorted-desc {
@@ -111,6 +126,14 @@
     font-family: Arial, sans-serif;
     font-weight: 500;
     color: #1a3a35;
+    transition: background-color 0.3s;
+  }
+  /* 마우스 올렸을 때 연한 배경색 - 노래제목, 가수명, 숙련도 */
+  tbody tr td:nth-child(1):hover,
+  tbody tr td:nth-child(2):hover,
+  tbody tr td:nth-child(4):hover {
+    background-color: rgba(74, 156, 133, 0.3);
+    cursor: default;
   }
 
   td.level-star {
@@ -123,22 +146,23 @@
 
   <h1>🥕 당근 농장 노래책 🥕</h1>
 
-  <input id="searchInput" type="text" placeholder="노래 제목 또는 가수를 검색하세요" />
-
-  <select id="levelFilter">
-    <option value="0">숙련도 전체</option>
-    <option value="★">★</option>
-    <option value="★★">★★</option>
-    <option value="★★★">★★★</option>
-    <option value="★★★★">★★★★</option>
-    <option value="★★★★★">★★★★★</option>
-  </select>
+  <div class="controls">
+    <input id="searchInput" type="text" placeholder="노래 제목 또는 가수를 검색하세요" />
+    <select id="levelFilter">
+      <option value="0">숙련도 전체</option>
+      <option value="★">★</option>
+      <option value="★★">★★</option>
+      <option value="★★★">★★★</option>
+      <option value="★★★★">★★★★</option>
+      <option value="★★★★★">★★★★★</option>
+    </select>
+  </div>
 
   <table id="songTable">
     <thead>
       <tr>
-        <th data-sort="artist">가수명</th>
-        <th data-sort="title">노래제목</th>
+        <th data-sort="artist">노래제목</th>
+        <th data-sort="title">가수명</th>
         <th data-sort="genre">장르</th>
         <th>숙련도</th>
       </tr>
@@ -158,12 +182,11 @@
   const levelFilter = document.querySelector("#levelFilter");
   const headers = document.querySelectorAll("thead th[data-sort]");
 
-  // CSV 데이터 파싱 (쉼표 포함된 값 대비 미리 간단 처리)
+  // CSV 데이터 파싱 (간단 처리)
   function parseCSV(text) {
     const lines = text.trim().split('\n');
     let data = [];
     for(let i=1; i<lines.length; i++) {
-      // 쉼표가 포함된 경우도 고려해 CSV 간단 파싱
       const row = lines[i].match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g).map(v => v.replace(/^"|"$/g, '').trim());
       data.push({
         artist: row[0] || '',
