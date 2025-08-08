@@ -7,16 +7,29 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
 
+  /* 배경 이미지 스타일 */
+  html, body {
+    margin: 0; padding: 0; height: 100%;
+  }
+  .background {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('/mnt/data/f409093d-651b-4f81-9563-2c9dcc785b48.png') center top no-repeat;
+    background-size: cover;
+    filter: brightness(0.9);
+    z-index: -1;
+  }
+
+  /* 본문은 투명 배경 */
   body {
-    margin: 0; padding: 0;
-    min-height: 100vh;
-    background: #dff7f0; /* 변경된 배경색 */
+    background: transparent;
     font-family: 'Nanum Pen Script', cursive, Arial, sans-serif;
     color: #1a3a35;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 40px 20px;
+    min-height: 100vh;
   }
 
   h1 {
@@ -25,7 +38,6 @@
     text-align: center;
   }
 
-  /* 검색 + 숙련도 필터를 감싸서 오른쪽 배치 및 가운데 정렬 */
   .controls {
     width: 100%;
     max-width: 560px;
@@ -85,11 +97,9 @@
     position: relative;
     transition: background-color 0.3s, color 0.3s;
   }
-  /* 마우스 오버 시 연한 색상 변경 (정렬 전) */
   thead tr th:hover:not(.sorted-asc):not(.sorted-desc) {
     background-color: #c9e7d9;
   }
-  /* 정렬 상태 스타일 */
   thead tr th.sorted-asc,
   thead tr th.sorted-desc {
     background-color: #4a9c85;
@@ -135,6 +145,7 @@
 </style>
 </head>
 <body>
+  <div class="background"></div>
 
   <h1>🥕 당근 농장 노래책 🥕</h1>
 
@@ -153,8 +164,8 @@
   <table id="songTable">
     <thead>
       <tr>
-        <th data-sort="artist">노래제목</th>
-        <th data-sort="title">가수명</th>
+        <th data-sort="artist">가수명</th>
+        <th data-sort="title">노래제목</th>
         <th data-sort="genre">장르</th>
         <th data-sort="level">숙련도</th>
       </tr>
@@ -263,6 +274,5 @@
       console.error(e);
     });
 </script>
-
 </body>
 </html>
