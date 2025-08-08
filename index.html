@@ -10,7 +10,7 @@
   body {
     margin: 0; padding: 0;
     min-height: 100vh;
-    background: #dff7f0;  /* 더 연한 민트색 */
+    background: #dff7f0; /* 변경된 배경색 */
     font-family: 'Nanum Pen Script', cursive, Arial, sans-serif;
     color: #1a3a35;
     display: flex;
@@ -25,12 +25,13 @@
     text-align: center;
   }
 
-  /* 필터+검색 컨테이너 오른쪽 정렬 */
+  /* 검색 + 숙련도 필터 컨테이너 */
   .controls {
     width: 100%;
     max-width: 700px;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
     gap: 12px;
     margin-bottom: 25px;
   }
@@ -128,7 +129,7 @@
     color: #1a3a35;
     transition: background-color 0.3s;
   }
-  /* 마우스 올렸을 때 연한 배경색 - 노래제목, 가수명, 숙련도 */
+  /* 노래제목, 가수명, 숙련도 셀에 마우스 오버 시 연한 배경색 */
   tbody tr td:nth-child(1):hover,
   tbody tr td:nth-child(2):hover,
   tbody tr td:nth-child(4):hover {
@@ -161,8 +162,8 @@
   <table id="songTable">
     <thead>
       <tr>
-        <th data-sort="artist">노래제목</th>
-        <th data-sort="title">가수명</th>
+        <th data-sort="artist">가수명</th>
+        <th data-sort="title">노래제목</th>
         <th data-sort="genre">장르</th>
         <th>숙련도</th>
       </tr>
@@ -182,11 +183,12 @@
   const levelFilter = document.querySelector("#levelFilter");
   const headers = document.querySelectorAll("thead th[data-sort]");
 
-  // CSV 데이터 파싱 (간단 처리)
+  // CSV 데이터 파싱 (쉼표 포함된 값 대비 미리 간단 처리)
   function parseCSV(text) {
     const lines = text.trim().split('\n');
     let data = [];
     for(let i=1; i<lines.length; i++) {
+      // 쉼표가 포함된 경우도 고려해 CSV 간단 파싱
       const row = lines[i].match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g).map(v => v.replace(/^"|"$/g, '').trim());
       data.push({
         artist: row[0] || '',
