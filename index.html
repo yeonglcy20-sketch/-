@@ -25,19 +25,19 @@
     text-align: center;
   }
 
-  /* 검색 + 숙련도 필터 컨테이너 */
+  /* 검색 + 숙련도 필터를 감싸서 오른쪽 배치 및 가운데 정렬 */
   .controls {
     width: 100%;
-    max-width: 700px;
+    max-width: 560px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
-    gap: 12px;
+    gap: 15px;
     margin-bottom: 25px;
   }
 
   #searchInput {
-    width: 220px;
+    flex: 1;
     padding: 10px 15px;
     font-size: 1.1rem;
     border-radius: 25px;
@@ -46,13 +46,10 @@
     box-shadow: 0 0 8px rgba(26,58,53,0.2);
     background-color: #d6f0e9;
     color: #1a3a35;
-    transition: background-color 0.3s;
   }
+
   #searchInput::placeholder {
     color: #55806b;
-  }
-  #searchInput:hover {
-    background-color: #c0e2d3;
   }
 
   #levelFilter {
@@ -65,10 +62,7 @@
     background-color: #d6f0e9;
     color: #1a3a35;
     box-shadow: 0 0 8px rgba(26,58,53,0.2);
-    transition: background-color 0.3s;
-  }
-  #levelFilter:hover {
-    background-color: #c0e2d3;
+    cursor: pointer;
   }
 
   table {
@@ -89,8 +83,13 @@
     user-select: none;
     color: #1a3a35;
     position: relative;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
   }
+  /* 마우스 오버 시 연한 색상 변경 (정렬 전) */
+  thead tr th:hover:not(.sorted-asc):not(.sorted-desc) {
+    background-color: #c9e7d9;
+  }
+  /* 정렬 상태 스타일 */
   thead tr th.sorted-asc,
   thead tr th.sorted-desc {
     background-color: #4a9c85;
@@ -127,14 +126,6 @@
     font-family: Arial, sans-serif;
     font-weight: 500;
     color: #1a3a35;
-    transition: background-color 0.3s;
-  }
-  /* 노래제목, 가수명, 숙련도 셀에 마우스 오버 시 연한 배경색 */
-  tbody tr td:nth-child(1):hover,
-  tbody tr td:nth-child(2):hover,
-  tbody tr td:nth-child(4):hover {
-    background-color: rgba(74, 156, 133, 0.3);
-    cursor: default;
   }
 
   td.level-star {
@@ -165,7 +156,7 @@
         <th data-sort="artist">노래제목</th>
         <th data-sort="title">가수명</th>
         <th data-sort="genre">장르</th>
-        <th>숙련도</th>
+        <th data-sort="level">숙련도</th>
       </tr>
     </thead>
     <tbody>
@@ -183,12 +174,10 @@
   const levelFilter = document.querySelector("#levelFilter");
   const headers = document.querySelectorAll("thead th[data-sort]");
 
-  // CSV 데이터 파싱 (쉼표 포함된 값 대비 미리 간단 처리)
   function parseCSV(text) {
     const lines = text.trim().split('\n');
     let data = [];
     for(let i=1; i<lines.length; i++) {
-      // 쉼표가 포함된 경우도 고려해 CSV 간단 파싱
       const row = lines[i].match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g).map(v => v.replace(/^"|"$/g, '').trim());
       data.push({
         artist: row[0] || '',
@@ -200,7 +189,6 @@
     return data;
   }
 
-  // 테이블 표시
   function renderTable(data) {
     tbody.innerHTML = "";
     data.forEach(song => {
@@ -216,7 +204,6 @@
     });
   }
 
-  // 검색 & 필터 적용
   function applyFilters() {
     const search = searchInput.value.toLowerCase();
     const levelVal = levelFilter.value;
@@ -229,11 +216,9 @@
     renderTable(filtered);
   }
 
-  // 정렬 상태 저장
   let sortKey = null;
   let sortAsc = true;
 
-  // 정렬 함수
   function sortBy(key) {
     if(sortKey === key) sortAsc = !sortAsc;
     else {
@@ -249,7 +234,6 @@
     updateHeaderStyles();
   }
 
-  // 정렬 중인 헤더 스타일 업데이트
   function updateHeaderStyles() {
     headers.forEach(th => {
       th.classList.remove('sorted-asc', 'sorted-desc');
@@ -259,18 +243,15 @@
     });
   }
 
-  // 헤더 클릭에 정렬 연결
   headers.forEach(th => {
     th.addEventListener('click', () => {
       sortBy(th.dataset.sort);
     });
   });
 
-  // 이벤트 연결
   searchInput.addEventListener('input', applyFilters);
   levelFilter.addEventListener('change', applyFilters);
 
-  // 초기 데이터 로드
   fetch(csvUrl)
     .then(res => res.text())
     .then(text => {
