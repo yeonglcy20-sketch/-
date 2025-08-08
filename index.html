@@ -2,12 +2,12 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8" />
-<title>🥕 당근 농장 노래책 🥕</title>
+<title>노래책</title>
 <style>
-  body { font-family: 'Nanum Gothic', sans-serif; background: #f0f8ff; padding: 20px; }
-  table { width: 100%; border-collapse: collapse; }
-  th, td { border-bottom: 1px solid #ccc; padding: 8px; text-align: left; }
-  th { background-color: #a1caff; }
+  body { font-family: Arial, sans-serif; padding: 20px; }
+  table { border-collapse: collapse; width: 100%; }
+  th, td { border: 1px solid #ddd; padding: 8px; }
+  th { background: #f2f2f2; }
 </style>
 </head>
 <body>
@@ -26,33 +26,32 @@
 </table>
 
 <script>
-const sheetId = '1hdsGYtEkNcSqkdelQkI__LE8vQ8kqhGrVNhD-Hgf9Bg';
-const sheetGid = '1935277676';
+  const csvUrl = "https://docs.google.com/spreadsheets/d/1hdsGYtEkNcSqkdelQkI__LE8vQ8kqhGrVNhD-Hgf9Bg/export?format=csv&gid=1935277676";
 
-// 구글 시트 JSON 주소 (public 공개 상태여야 함)
-const url = `https://spreadsheets.google.com/feeds/list/${sheetId}/${sheetGid}/public/values?alt=json`;
-
-fetch(url)
-  .then(response => response.json())
-  .then(data => {
-    const entries = data.feed.entry;
-    const tbody = document.querySelector('#songTable tbody');
-    
-    entries.forEach(entry => {
-      // 구글 시트 필드명은 소문자, 공백은 제거한 형태 (예: gsx$가수명)
-      const singer = entry['gsx$가수명'] ? entry['gsx$가수명']['$t'] : '';
-      const title = entry['gsx$노래제목'] ? entry['gsx$노래제목']['$t'] : '';
-      const genre = entry['gsx$장르'] ? entry['gsx$장르']['$t'] : '';
-      const level = entry['gsx$숙련도'] ? entry['gsx$숙련도']['$t'] : '';
+  fetch(csvUrl)
+    .then(response => response.text())
+    .then(csvText => {
+      const rows = csvText.trim().split('\n');
+      const tbody = document.querySelector("#songTable tbody");
       
-      const tr = document.createElement('tr');
-      tr.innerHTML = `<td>${singer}</td><td>${title}</td><td>${genre}</td><td>${level}</td>`;
-      tbody.appendChild(tr);
+      // 첫 줄은 헤더라면 무시
+      for(let i=1; i<rows.length; i++) {
+        const cols = rows[i].split(',');
+
+        // cols 배열의 순서 맞춰서 출력 (가수명, 노래제목, 장르, 숙련도)
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${cols[0]}</td>
+          <td>${cols[1]}</td>
+          <td>${cols[2]}</td>
+          <td>${cols[3]}</td>
+        `;
+        tbody.appendChild(tr);
+      }
+    })
+    .catch(err => {
+      console.error("CSV 불러오기 실패", err);
     });
-  })
-  .catch(err => {
-    console.error('스프레드시트 로딩 실패:', err);
-  });
 </script>
 
 </body>
