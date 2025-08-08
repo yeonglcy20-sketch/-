@@ -14,15 +14,29 @@
     font-family: 'Nanum Pen Script', cursive, Arial, sans-serif;
     color: #1a3a35;
     display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+
+  /* 타이틀부터 표까지 감싸는 큰 사각형 */
+  .content-wrapper {
+    width: 100%;
+    max-width: 740px;
+    background-color: #F6FDFA;
+    border-radius: 20px;
+    padding: 30px 30px 40px 30px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 20px;
   }
 
   h1 {
     font-size: 3rem;
     margin-bottom: 30px;
     text-align: center;
+    width: 100%;
   }
 
   .controls {
@@ -64,15 +78,13 @@
     cursor: pointer;
   }
 
-  /* 테이블 감싸는 배경 */
+  /* .table-wrapper는 배경 없이 패딩만 유지 */
   .table-wrapper {
     width: 100%;
-    max-width: 700px;
-    background-color: #F6FDFA; /* 변경된 배경색 */
-    border-radius: 16px;
-    padding: 12px 20px 20px 20px;
-    box-sizing: border-box;
-    margin-bottom: 40px;
+    padding-top: 10px;
+    border-radius: 0;
+    background-color: transparent;
+    margin-bottom: 0;
   }
 
   table {
@@ -82,7 +94,7 @@
   }
 
   thead tr th {
-    background-color: #FDE9C3; /* 변경된 헤더 배경색 */
+    background-color: #FDE9C3;
     padding: 12px 20px;
     border-radius: 12px 12px 0 0;
     font-weight: 700;
@@ -95,11 +107,11 @@
     transition: background-color 0.3s, color 0.3s;
   }
   thead tr th:hover:not(.sorted-asc):not(.sorted-desc) {
-    background-color: #faefbf; /* 헤더 hover 시 연한 색 */
+    background-color: #faefbf;
   }
   thead tr th.sorted-asc,
   thead tr th.sorted-desc {
-    background-color: #d1b75b; /* 정렬 시 진한 배경 */
+    background-color: #d1b75b;
     color: white;
   }
 
@@ -128,34 +140,36 @@
 </head>
 <body>
 
-  <h1>🥕 당근 농장 노래책 🥕</h1>
+  <div class="content-wrapper">
+    <h1>🥕 당근 농장 노래책 🥕</h1>
 
-  <div class="controls">
-    <input id="searchInput" type="text" placeholder="노래 제목 또는 가수를 검색하세요" />
-    <select id="levelFilter">
-      <option value="0">숙련도 전체</option>
-      <option value="★">★</option>
-      <option value="★★">★★</option>
-      <option value="★★★">★★★</option>
-      <option value="★★★★">★★★★</option>
-      <option value="★★★★★">★★★★★</option>
-    </select>
-  </div>
+    <div class="controls">
+      <input id="searchInput" type="text" placeholder="노래 제목 또는 가수를 검색하세요" />
+      <select id="levelFilter">
+        <option value="0">숙련도 전체</option>
+        <option value="★">★</option>
+        <option value="★★">★★</option>
+        <option value="★★★">★★★</option>
+        <option value="★★★★">★★★★</option>
+        <option value="★★★★★">★★★★★</option>
+      </select>
+    </div>
 
-  <div class="table-wrapper">
-    <table id="songTable">
-      <thead>
-        <tr>
-          <th data-sort="artist">노래제목</th>
-          <th data-sort="title">가수명</th>
-          <th data-sort="genre">장르</th>
-          <th data-sort="level">숙련도</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- 데이터가 JS로 채워집니다 -->
-      </tbody>
-    </table>
+    <div class="table-wrapper">
+      <table id="songTable">
+        <thead>
+          <tr>
+            <th data-sort="artist">가수명</th>
+            <th data-sort="title">노래제목</th>
+            <th data-sort="genre">장르</th>
+            <th data-sort="level">숙련도</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 데이터가 JS로 채워집니다 -->
+        </tbody>
+      </table>
+    </div>
   </div>
 
 <script>
