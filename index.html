@@ -44,7 +44,7 @@
   }
 
   #levelFilter {
-    width: 120px;
+    width: 140px;
     padding: 8px 12px;
     margin-bottom: 25px;
     border-radius: 25px;
@@ -73,6 +73,27 @@
     cursor: pointer;
     user-select: none;
     color: #1a3a35;
+    position: relative;
+  }
+  thead tr th.sorted-asc,
+  thead tr th.sorted-desc {
+    background-color: #4a9c85;
+    color: white;
+  }
+  thead tr th.sorted-asc::after,
+  thead tr th.sorted-desc::after {
+    content: '';
+    position: absolute;
+    right: 12px;
+    font-weight: bold;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  thead tr th.sorted-asc::after {
+    content: '▲';
+  }
+  thead tr th.sorted-desc::after {
+    content: '▼';
   }
 
   tbody tr {
@@ -91,6 +112,11 @@
     font-weight: 500;
     color: #1a3a35;
   }
+
+  td.level-star {
+    color: gold;
+    font-weight: bold;
+  }
 </style>
 </head>
 <body>
@@ -101,18 +127,18 @@
 
   <select id="levelFilter">
     <option value="0">숙련도 전체</option>
-    <option value="1">★</option>
-    <option value="2">★★</option>
-    <option value="3">★★★</option>
-    <option value="4">★★★★</option>
-    <option value="5">★★★★★</option>
+    <option value="★">★</option>
+    <option value="★★">★★</option>
+    <option value="★★★">★★★</option>
+    <option value="★★★★">★★★★</option>
+    <option value="★★★★★">★★★★★</option>
   </select>
 
   <table id="songTable">
     <thead>
       <tr>
-        <th data-sort="title">노래제목</th>
         <th data-sort="artist">가수명</th>
+        <th data-sort="title">노래제목</th>
         <th data-sort="genre">장르</th>
         <th>숙련도</th>
       </tr>
@@ -132,18 +158,18 @@
   const levelFilter = document.querySelector("#levelFilter");
   const headers = document.querySelectorAll("thead th[data-sort]");
 
-  // CSV 데이터 파싱
+  // CSV 데이터 파싱 (쉼표 포함된 값 대비 미리 간단 처리)
   function parseCSV(text) {
     const lines = text.trim().split('\n');
     let data = [];
     for(let i=1; i<lines.length; i++) {
-      const row = lines[i].split(',');
-      // [가수명, 노래제목, 장르, 숙련도] 순서인데, 위치 바꿔야 하니 여기서 재배열
+      // 쉼표가 포함된 경우도 고려해 CSV 간단 파싱
+      const row = lines[i].match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g).map(v => v.replace(/^"|"$/g, '').trim());
       data.push({
-        artist: row[0].trim(),
-        title: row[1].trim(),
-        genre: row[2].trim(),
-        level: row[3].trim()
+        artist: row[0] || '',
+        title: row[1] || '',
+        genre: row[2] || '',
+        level: row[3] || ''
       });
     }
     return data;
@@ -153,12 +179,13 @@
   function renderTable(data) {
     tbody.innerHTML = "";
     data.forEach(song => {
+      const levelClass = song.level.includes('★') ? 'level-star' : '';
       const tr = document.createElement('tr');
       tr.innerHTML = `
-        <td>${song.title}</td>
         <td>${song.artist}</td>
+        <td>${song.title}</td>
         <td>${song.genre}</td>
-        <td>${song.level}</td>
+        <td class="${levelClass}">${song.level}</td>
       `;
       tbody.appendChild(tr);
     });
@@ -194,6 +221,17 @@
       return 0;
     });
     applyFilters();
+    updateHeaderStyles();
+  }
+
+  // 정렬 중인 헤더 스타일 업데이트
+  function updateHeaderStyles() {
+    headers.forEach(th => {
+      th.classList.remove('sorted-asc', 'sorted-desc');
+      if(th.dataset.sort === sortKey) {
+        th.classList.add(sortAsc ? 'sorted-asc' : 'sorted-desc');
+      }
+    });
   }
 
   // 헤더 클릭에 정렬 연결
@@ -213,6 +251,10 @@
     .then(text => {
       songData = parseCSV(text);
       renderTable(songData);
+    })
+    .catch(e => {
+      tbody.innerHTML = '<tr><td colspan="4" style="text-align:center; color:red;">데이터를 불러오지 못했습니다.</td></tr>';
+      console.error(e);
     });
 </script>
 
