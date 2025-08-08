@@ -1,57 +1,59 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>당근 농장 노래책</title>
-  <!-- 손글씨체 웹폰트 불러오기 -->
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<title>🥕 당근 농장 노래책 🥕</title>
+<style>
+  body { font-family: 'Nanum Gothic', sans-serif; background: #f0f8ff; padding: 20px; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { border-bottom: 1px solid #ccc; padding: 8px; text-align: left; }
+  th { background-color: #a1caff; }
+</style>
 </head>
 <body>
-  <div class="overlay">
-    <h1>🥕 당근 농장 노래책 🥕</h1>
 
-    <input type="text" id="searchInput" placeholder="노래 제목 또는 가수를 검색하세요">
+<h1>노래책</h1>
+<table id="songTable">
+  <thead>
+    <tr>
+      <th>가수명</th>
+      <th>노래제목</th>
+      <th>장르</th>
+      <th>숙련도</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
 
-    <div class="controls">
-      <label for="levelFilter">숙련도:</label>
-      <select id="levelFilter" onchange="updateFilters()">
-        <option value="0">전체</option>
-        <option value="1">★</option>
-        <option value="2">★★</option>
-        <option value="3">★★★</option>
-        <option value="4">★★★★</option>
-        <option value="5">★★★★★</option>
-      </select>
+<script>
+const sheetId = '1hdsGYtEkNcSqkdelQkI__LE8vQ8kqhGrVNhD-Hgf9Bg';
+const sheetGid = '1935277676';
 
-      <label for="genreFilter">장르:</label>
-      <select id="genreFilter" onchange="updateFilters()">
-        <option value="all">전체</option>
-        <option value="JPOP">JPOP</option>
-        <option value="인디/발라드">인디/발라드</option>
-        <option value="POP">POP</option>
-        <option value="애교송">애교송</option>
-      </select>
+// 구글 시트 JSON 주소 (public 공개 상태여야 함)
+const url = `https://spreadsheets.google.com/feeds/list/${sheetId}/${sheetGid}/public/values?alt=json`;
 
-      <label for="sortBy">정렬:</label>
-      <select id="sortBy" onchange="updateFilters()">
-        <option value="title-asc">제목 ↑</option>
-        <option value="title-desc">제목 ↓</option>
-        <option value="singer-asc">가수 ↑</option>
-        <option value="singer-desc">가수 ↓</option>
-      </select>
-    </div>
+fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    const entries = data.feed.entry;
+    const tbody = document.querySelector('#songTable tbody');
+    
+    entries.forEach(entry => {
+      // 구글 시트 필드명은 소문자, 공백은 제거한 형태 (예: gsx$가수명)
+      const singer = entry['gsx$가수명'] ? entry['gsx$가수명']['$t'] : '';
+      const title = entry['gsx$노래제목'] ? entry['gsx$노래제목']['$t'] : '';
+      const genre = entry['gsx$장르'] ? entry['gsx$장르']['$t'] : '';
+      const level = entry['gsx$숙련도'] ? entry['gsx$숙련도']['$t'] : '';
+      
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td>${singer}</td><td>${title}</td><td>${genre}</td><td>${level}</td>`;
+      tbody.appendChild(tr);
+    });
+  })
+  .catch(err => {
+    console.error('스프레드시트 로딩 실패:', err);
+  });
+</script>
 
-    <div class="song-header">
-      <div class="col title">제목</div>
-      <div class="col singer">가수</div>
-      <div class="col genre">장르</div>
-      <div class="col level">숙련도</div>
-    </div>
-
-    <div id="songList"></div>
-  </div>
-
-  <script src="script.js"></script>
 </body>
 </html>
